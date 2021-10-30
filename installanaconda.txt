@@ -1,0 +1,6 @@
+https://www.youtube.com/watch?v=VC-EliTgMEM
+
+Let me just install anaconda. 
+Look at tim's videos. 
+
+It seems OK to download latest anaconda (tim says 3.7 is OK but uses 3.6 for tensorflow). 

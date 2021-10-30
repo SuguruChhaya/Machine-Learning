@@ -1,0 +1,242 @@
+basic info from leetcode module. 
+
+Supervised or unsupervised. 
+Supervised learning is where there is an expected value (ground truth) that the machine should get 
+better at approximating. 
+unsupervised learning doesn't have an expected value so machine just learns on its own. 
+
+Often times data aren't perfectly labeled so have to do semi-supervised. 
+A classification model: e.g. whether the photo is a cat or not. Usually true or false. Group in one. 
+Regression model: Have to output individual price: price of house based on attributes. 
+Co
+Often times data has to be transformed into a numeric way. 
+High quality training data actually represents what we want. 
+Data is usually in 2 types: training and testing. 
+Seeing the linear regression algo mentioned again and again. 
+Hyper parameter tuning: Modify the stuff that goes in. 
+
+Though over-fitting means accuracy for the given data, it doesn't mean it will perform well for generalized unseen data. 
+Underfitting: oversimplifying 
+Overcomplicated model sounds good but could fail to noises and errors.
+
+Loss function calculates the difference between the prediction and the true value. 
+Often time loss function relates to square error (probably because difference can be both in positive or negative direction. I think abs() will work as well.)
+
+Main prediction differs the least from the main prediction. Kind of like the tendency. 
+
+Still kind of difficult to understand bias. 
+Variance is relatively easy to understand. The greater the "loss" is over an average set of values, the greater the variance is. 
+high variance could mean high sensitivity. 
+
+In terms of a bulls eye:
+High bias means the shots are far away from the bulls eye. 
+High variance means the shot is scattered around. 
+
+https://assets.leetcode.com/uploads/2019/02/10/card_bias_variance.png
+
+Low bias, low variance is the ideal learner. 
+
+As a model becomes more complicated, it listens to too much outside noise so variance increases. 
+As bias decreases (more accurate), the variance (sensitive to noise) increases. Therefore good to find a sweetspot. 
+
+ML algos can adapt in different contexts. 
+We don't explicitly code the rules but we can supervise it. 
+Hard to correct ML mistakes individually. We cannot treat as individual bugs but need to make more holistical changes. 
+
+
+Started Andrew Ng's Coursera machine learning course. 
+
+Implementing algo is as important as theory, algo, and math. 
+There is a learning algo that detects hand-writing so mailing costs only a little. 
+
+Supervised learning: Give a correct answer for example in data. 
+
+m: number of training examples
+x: input variable. 
+y: target variable. 
+(x^i, y^i) is just an index for the ith training example. 
+Usually the function is denoted by h (hypothesis)
+
+For an example, h(x) = theta_0 + theta_1*x represents a linear function with a slope and a y-intercept. 
+Univariate linear regression: linear regression with one variable. 
+
+I feel like I can manually find a linear regression using a brute force forloop. 
+But that will be too random. 
+cost function: square error function. 
+The hypothesis function is a function of x while the J function is a function of theta_1. 
+The different is gonna be like a quadratic function. But that is when there is only one variable. 
+With 2 variables things might be a 3D function. 
+
+Contow plots? Instead of 3D you have ellipses in the graph. Won't know the exact J value but shows where equates. 
+Center of contour usually minimizes it. 
+
+Gradient descent: helps find minimal value. Kind of like brute force. 
+Initialize and keep reducing. 
+Gradient descent: could land at different minimal. 
+alpha: learning rate (how much we want to go down at a time). We check all directions with alpha distance from that point. 
+
+I remember derivative being the rate of change.  
+Makes a lot of sense. We really want the derivative to be 0 with 1 variable. 
+I think alpha is kind of like margin of error. 
+
+If alpha is too large, we can move further and further away every move which is bad. 
+Usually, gradiant decent, as I approach minimum, we will take smaller steps because derivative approaches 0. 
+I have to do 2 separate derivatives because we have to calculate derivative for theta_0 and theta_1.
+
+For linear, there is only one global optimum which helps see we always get close to that. 
+
+Batch gradient descent: look at all the training examples: probably take more time. 
+I don't get to see my incorrect answers so that sucks. 
+
+Matrix are just like 2D arrays. Not 0-indexed tho. 
+Vector only has 1 column. Can have a lot of rows tho. 
+4 dimensional vector: vector with 4 elements. Could be 0-indexed. 
+
+Kind of excited because I don't even know how matrix stuff is useful so I want to see. 
+
+Didn't really remember this but result of multiplying a x b matrix by c x d matrix is a x d matrix. 
+
+Really nice trick. Plug in function into matrix to do the calculation. More efficient. 
+
+I assume that there could be some errors when doing matrix calc when col of first and row of second don't match. 
+Yeah this is correct. 
+
+In matrix multiplication, a * b != b * a.
+Is associative. 
+Identity matrix: 1 along the diagonal axis. (n * n) so square matrix. Has to be square matrix. 
+a * I = I * a = a 
+
+Again learn about inverses. 
+Transpose is just kind of easy to understand. 
+
+I will keep using online version but https://www.coursera.org/learn/machine-learning/supplement/ks2m0/setting-up-your-programming-assignment-environment could be helpful. 
+https://www.coursera.org/learn/machine-learning/supplement/rANSM/access-to-matlab-online-and-the-exercise-files-for-matlab-users
+
+https://matlab.mathworks.com/
+
+Good reference: https://www.coursera.org/learn/machine-learning/supplement/Mlf3e/more-octave-matlab-resources
+
+There is a notation 
+ (4)
+x
+ 1
+
+This means we are looking at 4th row 1st column. 
+In a standard table, that would be mean the 4th data set and the 1st feature. 
+
+Just 
+
+x
+ 1
+
+means that the first feature of that specific dataset. 
+I think that we have theta_0 as constant because when all features are 0 doesn't mean graph is at 0. 
+I don't think we can even graph this at this point. 
+
+You could write the whole thing in an n+1 vector and do vector multiplication. after transposing. 
+
+I am not sure whether the order is really relevant in this case. Video says transpose the vector containing all theta values. 
+
+We could think of parameter of model as theta which is an n+1 dimensional vector. n is the number of parameters. 
+
+We should run the loop from 0 because m elements and 1-m. 
+
+Kind of confused with the new formula... Don't know if it would cause a problem..
+
+Feature scaling is used to reach the global minimum quickly. or mean normalization. 
+For example if the size was 0-2000(theta_1) and rooms was 1-5(theta_2), if theta_1 increases by a bit, the graph could be influenced significantly. 
+Therefore it is good to scale it down. 
+
+Really thoeretical stuff... Hope I can actually implement these in programming assignments.         
+
+I don't understand the quiz from https://www.coursera.org/learn/machine-learning/lecture/xx3Da/gradient-descent-in-practice-i-feature-scaling
+
+I think that when it says use feature scaling and mean normalization I don't think it means one after another but rather to get it into the number range. 
+
+Feature scaling: -1 <= x_i <= 1 range. 
+Mean normalization: -0.5 <= x_i <= 0.5
+
+I GET IT. In mean normalization, we don't do additional division. Instead, I just replace the x_i value. 
+
+Makes sense because of 30yrs-50yrs, the range is 20. Then replace x_i with x_i - 38. 
+Most likely won't reach 100% convergence becuase accuracy issues. 
+
+I mean technically, I could use binary search to find the largest possible alpha which decreases J(theta) every iteration. 
+
+Could simplify problem sometimes to reduce the number of variables. 
+If there are 2 variables like frontage X depth, I could just simplify it to area. 
+
+I guess that based on the initial look of the graph, we can decide what type of function we should choose (linear, quadratic, exponential etc)
+
+Normal equation: one go?
+So instead of doing the whole iterative gradient descent thing, I can set derivative of each theta feature to 0 and solve??
+Iterative probably means since we can try to graph the cost function and see how it goes down. 
+
+
+Kind of forgot what inverse does...
+Inverses is a little challenging but just need to know concept:
+https://byjus.com/maths/inverse-matrix/#:~:text=Inverse%20Matrix%20Method%201%20Method%201%3A%20Similarly%2C%20we,and%20B%20such%20that%20X%20%3D%20AB.%20
+
+No proof but can be mathematically proven. 
+
+If using normal equation, you don't need feature scaling. 
+
+I would probably use normal equation all the time. But sophisticated algos often cannot use normal equation?
+
+Don't create redundant features. Try to reduce features to prevent non-invertible matrices. 
+
+There are exercise tokens on exercise page. 
+README contains submission info for matlab. 
+
+End line with semicolons. 
+
+89/100 and mean normalization. (89-50) / 100 = 0.39
+
+I kind of forgot what pinv was really useful for...
+Transpose and inverse are different things. 
+
+I am kind of wondering whether I should have taken nice notes of Ng's course since I forgot most of the lower level math stuff...
+
+i is really just the data set number. That is why we are going from i=1 to m since there are m data sets by definition. 
+Why is the sum element just a vector though? I am just getting real confused...
+
+
+
+Watching sentdex's videos because Andrew Ng seems quite hard... Will come back to it though!
+What are support vector machines? 
+Some complicated vocab along with neural network? 
+
+pip install sklearn
+pip install quandl
+pip install pandas
+
+Kinda take the step back and explore tim's video on whether ML is right for me...
+https://www.youtube.com/watch?v=AO6urf07KjE
+
+Any patterns can be exposed. 
+Really intimidating. 
+Machine learning: could all be meaningless unlike programming? 
+
+Apparantly I need anaconda to do tensorflow. 
+
+
+Tensorflow												
+Vocabulary is tough. Andrew Ng's course is decent in the beginning but gets tough later on?												
+Understanding vocab is the key												
+Isolate what I didn't understand then do it. 												
+Understand pseudocode												
+When given text color, should you have light background or dark background?												
+Write neural network from the start												
+Frameworks like tensorflow and pytorch apparantly helps do the heavy lifting by giving me almost a built-in product but things can get trouble if something breaks since I am not gonna know what is going on. 												
+
+Let me see if I actually like understanding the math behind things. 
+
+Some algos can deal with an infinite number of features. 
+
+Example of unsupervised learning: clustering algorithm. For example, clusterin news by topic. 
+Using machine learning, I can distinguish two mixed up audio sources. 
+
+Audio separation can seem very complicated but most work is pre-made if I use the correct environment. 
+E.g. Octave. First prototype it there then migrate to C++ java etc. 
+
+This online editor seems to be OK. https://octave-online.net/project~4oP4egTQxQfDn32aF2d9dR
